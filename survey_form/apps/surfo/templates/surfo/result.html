@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel='stylesheet' type='text/css' href="{% static 'surfo/css/styles.css' %}" >
+    <title>Results Page</title>
+</head>
+<body>
+    <div id='wrapper'>
+        <center>
+            <div id='subbed'>
+                <h2 id='times'>You have submitted this form {{request.session.count}} times!</h2>
+            </div>
+        </center>
+        <div id='formdiv'>
+            <h1>Submitted Info</h1>
+
+                <div class="label">
+                    Name:    
+                </div><!--closes label-->
+                <h3>{{ request.session.name }}</h3>
+                    
+                <div class="label">
+                    Dojo Location:
+                </div><!--closes label-->
+                <h3>{{ request.session.where }}</h3>
+
+                <div class="label">
+                    Favorite Language:
+                </div><!--closes label-->
+                <h3>{{ request.session.what }}</h3>
+                
+                <div class="label">
+                    Comment:
+                </div><!--closes label-->
+                <h3>{{ request.session.comment }}</h3>
+
+        </div><!--closes form-->
+        <form action="/back" method="POST">
+            {% csrf_token %}
+        <input type="submit" value="Go Back" id='bttn'>
+        </form>
+    </div><!--closes wrapper-->
+</body>
+</html>

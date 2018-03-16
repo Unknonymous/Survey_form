@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'surfo/css/styles.css' %}" >
+    <title>Dojo Survey</title>
+</head>
+<body>
+    <div id='wrapper'>
+        
+        <div id='formdiv'>
+            <h1>Dojo Survey</h1>
+            <form id="form" action="/surveys/process" method="POST">
+                {%csrf_token%}
+                <div class="label">
+                    What is your Name?        
+                </div><!--closes label-->
+                <input type='text' name='name' class='field'>
+                    
+            <div class="label">
+                Where is your Dojo?
+            </div><!--closes label-->
+            <select class='field' name='where'>
+                <option value="Silicon Valley">Silicon Valley</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Online Everywhere">Online Everywhere</option>
+            </select>
+            
+            <div class="label">
+                What is your favorite Language?
+            </div><!--closes label-->
+            <select class='field' name='what'>
+                <option value="JavaScript">JavaScript</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="Python">Python</option>
+            </select>
+
+            <div class="label">
+                Comment (Optional):
+            </div><!--closes label-->
+            <textarea id='area' name='comments'></textarea><br>
+
+            <input type='submit' value='Submit' id='bttn'>
+            </form>
+
+        </div><!--closes form-->
+    </div><!--closes wrapper-->
+</body>
+</html>
